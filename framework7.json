@@ -1,6 +1,6 @@
 {
   "type": ["web", "pwa"],
-  "name": "lliw.io",
+  "name": "lliwio-app",
   "framework": "react",
   "template": "tabs",
   "bundler": "vite",

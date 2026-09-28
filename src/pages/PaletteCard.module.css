@@ -22,7 +22,8 @@
 }
 .pcard > .pcardInner {
   width: 100vw;
-  height: 100vh;
+  /* Match the expanded card's viewport, including visible browser toolbars. */
+  height: 100dvh;
   overflow: hidden;
 }
 .pcard.isOpen > .pcardInner {

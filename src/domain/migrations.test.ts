@@ -105,7 +105,7 @@ describe("a payload that carries a version it did not earn", () => {
    * what the version tag exists to disambiguate.
    */
   const future = {
-    format: "lliw.io/palettes",
+    format: "lliwio-app/palettes",
     exportedAt: "2026-08-23T00:00:00.000Z",
     schemaVersion: SCHEMA_VERSION + 1,
     palettes: [palette("p1")],
@@ -131,7 +131,7 @@ describe("a payload that carries a version it did not earn", () => {
 describe("import files", () => {
   it("reads a current export, ignoring format and exportedAt", () => {
     const file = {
-      format: "lliw.io/palettes",
+      format: "lliwio-app/palettes",
       exportedAt: "2026-08-23T00:00:00.000Z",
       schemaVersion: SCHEMA_VERSION,
       palettes: [palette("p1")],
@@ -144,7 +144,7 @@ describe("import files", () => {
 
   it("upgrades a pre-versioning export, which had no schemaVersion anywhere", () => {
     const file = {
-      format: "lliw.io/palettes",
+      format: "lliwio-app/palettes",
       exportedAt: "2026-08-23T00:00:00.000Z",
       palettes: [palette("p1")],
     };
@@ -155,7 +155,7 @@ describe("import files", () => {
   });
 
   it("rejects an export whose palettes are malformed", () => {
-    const file = { format: "lliw.io/palettes", palettes: [{ id: "p1" }] };
+    const file = { format: "lliwio-app/palettes", palettes: [{ id: "p1" }] };
     expect(readExportPayload(file)).toBeNull();
   });
 

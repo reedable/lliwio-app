@@ -1,6 +1,6 @@
-# lliw.io
+# lliwio-app
 
-lliw.io is a colour palette tool for the web, installable as a PWA. You build
+lliwio-app is a colour palette tool for the web, installable as a PWA. You build
 palettes of named colours, organised into groups, and open any colour to see
 every pairing it makes with the rest of its palette — each one rendered as a
 real text sample and filtered by the WCAG contrast ratio it meets, so you can
@@ -14,7 +14,7 @@ npm install
 npm run dev
 ```
 
-The dev server prints a URL under the `/lliw.io/` base path, matching how the
+The dev server prints a URL under the `/lliwio-app/` base path, matching how the
 app is served from GitHub Pages.
 
 ## Scripts

@@ -7,11 +7,9 @@ import {
   FabButtons,
   Icon,
   List,
-  ListButton,
   ListItem,
   SwipeoutActions,
   SwipeoutButton,
-  f7,
 } from "framework7-react";
 import { TERTIARY } from "../domain/colors";
 import store, { allColors, flattenPalette } from "../domain/store";
@@ -40,13 +38,6 @@ const PaletteCard = ({ palette, expanded, editing, onExpand, onCollapse }: Palet
     enabled: phase === "open",
     getScroller: () => contentRef.current,
   });
-
-  const deletePalette = () => {
-    f7.dialog.confirm(`Delete “${palette.name}”? This cannot be undone.`, "Delete palette", () => {
-      onCollapse();
-      store.dispatch("deletePalette", { id: palette.id });
-    });
-  };
 
   const addColor = () => {
     const groupId = palette.groups[palette.groups.length - 1]?.id;
@@ -162,10 +153,6 @@ const PaletteCard = ({ palette, expanded, editing, onExpand, onCollapse }: Palet
             </List>
 
             {colors.length === 0 && <Block className={styles.paletteEmpty}>No colors yet.</Block>}
-
-            <List strong inset>
-              <ListButton title="Delete palette" color="red" onClick={deletePalette} />
-            </List>
 
             <div className={styles.paletteFooter}>
               <Fab className={styles.paletteAdd} aria-label="Add">

@@ -12,10 +12,10 @@ const BUILD_DIR = path.resolve(CONFIG_DIR, "./www");
 export default defineConfig({
   plugins: [react()],
   root: SRC_DIR,
-  // GitHub Pages serves this repo at https://reedable.github.io/lliw.io/.
+  // GitHub Pages serves this repo at https://reedable.github.io/lliwio-app/.
   // Kept the same in dev so the dev server URL matches production; vite prints
-  // http://localhost:5173/lliw.io/ on start.
-  base: "/lliw.io/",
+  // http://localhost:5173/lliwio-app/ on start.
+  base: "/lliwio-app/",
   publicDir: PUBLIC_DIR,
   build: {
     outDir: BUILD_DIR,

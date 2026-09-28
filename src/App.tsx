@@ -14,7 +14,7 @@ import routes from "./routes";
 const App = () => {
   // Framework7 Parameters
   const f7params = {
-    name: "lliw.io", // App name
+    name: "lliwio-app", // App name
     /*
      * Read once, at construction. F7 computes app.theme in its constructor and
      * stamps it on <html> with `removeClass('ios md').addClass(app.theme)` — it
@@ -38,8 +38,8 @@ const App = () => {
         ? {
             // Must match the Pages subpath: this path also determines the service
             // worker's scope, and a worker at the domain root could not control
-            // pages under /lliw.io/.
-            path: "/lliw.io/service-worker.js",
+            // pages under /lliwio-app/.
+            path: "/lliwio-app/service-worker.js",
           }
         : {},
   };

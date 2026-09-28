@@ -121,7 +121,7 @@ const savePalettes = (palettes: Palette[]) => {
  * rather than "corrupt"; `schemaVersion` inside the payload is what lets an
  * older file be recognised and upgraded rather than misread.
  */
-const EXPORT_FORMAT = "lliw.io/palettes";
+const EXPORT_FORMAT = "lliwio-app/palettes";
 
 interface PaletteExport {
   format: typeof EXPORT_FORMAT;
@@ -153,7 +153,7 @@ export const parseImport = (text: string): ImportResult => {
    * authority in both cases.
    */
   if (!z.object({ format: z.literal(EXPORT_FORMAT) }).safeParse(parsed).success) {
-    return { ok: false, reason: "That file was not exported from lliw.io." };
+    return { ok: false, reason: "That file was not exported from lliwio-app." };
   }
   /*
    * Same ladder as stored data: an export written before versioning existed is
@@ -162,7 +162,7 @@ export const parseImport = (text: string): ImportResult => {
    */
   const payload = readExportPayload(parsed);
   if (payload === null) {
-    return { ok: false, reason: "That file is a lliw.io export, but it could not be read." };
+    return { ok: false, reason: "That file is a lliwio-app export, but it could not be read." };
   }
   return { ok: true, palettes: payload.palettes };
 };

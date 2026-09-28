@@ -21,8 +21,8 @@ import * as current from "./schema/v1";
  *   required — anything that makes older data fail to parse.
  *
  * Reading is strict: `loadPalettes` and `loadSettings` reject a non-conforming
- * value whole rather than salvaging part of it, because lliw.io is reading data
- * lliw.io wrote. That is what makes the distinction above load-bearing — under
+ * value whole rather than salvaging part of it, because lliwio-app is reading data
+ * lliwio-app wrote. That is what makes the distinction above load-bearing — under
  * a destructive change, existing data does not degrade, it disappears.
  *
  * So a destructive change ships as a new schema file plus one upgrade step:

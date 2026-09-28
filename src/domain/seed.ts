@@ -31,7 +31,7 @@ const namedGroup = (name: string, colors: Readonly<Record<string, string>>): Col
 export const SEED_PALETTES: Palette[] = [
   {
     id: "p1",
-    name: "lliw.io",
+    name: "lliwio-app",
     ungrouped: [],
     groups: [namedGroup("Brand", BRAND), namedGroup("Secondary", SECONDARY)],
   },

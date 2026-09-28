@@ -10,6 +10,28 @@ import {
 } from "./colorEditing";
 
 describe("precision used by the color editor", () => {
+  it("shows zero HSL saturation for #363636, including conversion round trips", () => {
+    const gray = new Color("#363636");
+    const values = [
+      "#363636",
+      "hsla(324, 3.9238e-14%, 21.176%, 1)",
+      "hsla(340, 3.9238e-14%, 21.221%, 1)",
+      ...(["rgb", "hsl", "oklch"] as const).map((model) =>
+        formatChannels(colorChannels("#363636", model), model),
+      ),
+      gray.to("oklch").toString({ precision: 17 }),
+    ];
+    for (const value of values) {
+      const channels = colorChannels(value, "hsl");
+      expect(channels.slice(0, 2), value).toEqual([0, 0]);
+      expect(formatChannels(channels, "hsl"), value).toMatch(/^hsla\(0, 0%, /);
+    }
+    expect(formatChannels(colorChannels("#363636", "hsl"), "hsl"))
+      .toBe("hsla(0, 0%, 21.176%, 1)");
+    expect(formatChannels(colorChannels("hsla(340, 3.9238e-14%, 21.221%, 1)", "hsl"), "hsl"))
+      .toBe("hsla(0, 0%, 21.221%, 1)");
+  });
+
   it("normalizes neutral HSL residue while preserving lightness and alpha", () => {
     for (const value of ["oklch(0.666667 0 0 / 0.123456789)", "oklch(0.999999999999 0 0)"]) {
       const original = new Color(value).to("hsl");

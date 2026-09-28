@@ -1,43 +1,43 @@
 {
-  "name": "lliw.io",
-  "short_name": "lliw.io",
-  "description": "lliw.io",
+  "name": "lliwio-app",
+  "short_name": "lliwio-app",
+  "description": "lliwio-app",
   "lang": "en-US",
-  "start_url": "/lliw.io/",
+  "start_url": "/lliwio-app/",
   "display": "standalone",
   "background_color": "#c8102e",
   "theme_color": "#c8102e",
   "icons": [
     {
-      "src": "/lliw.io/icons/128x128.png",
+      "src": "/lliwio-app/icons/128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "/lliw.io/icons/144x144.png",
+      "src": "/lliwio-app/icons/144x144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "/lliw.io/icons/152x152.png",
+      "src": "/lliwio-app/icons/152x152.png",
       "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "/lliw.io/icons/192x192.png",
+      "src": "/lliwio-app/icons/192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/lliw.io/icons/256x256.png",
+      "src": "/lliwio-app/icons/256x256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "/lliw.io/icons/512x512.png",
+      "src": "/lliwio-app/icons/512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "scope": "/lliw.io/"
+  "scope": "/lliwio-app/"
 }

@@ -1,5 +1,5 @@
 /**
- * lliw.io's own brand palette. Not user data — these are the app's colours, kept
+ * lliwio-app's own brand palette. Not user data — these are the app's colours, kept
  * apart from the palettes in the store so the two never get confused.
  */
 

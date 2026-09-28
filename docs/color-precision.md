@@ -60,6 +60,32 @@ entry bypasses that grid and rounds by significant digits. Opening or focusing
 a field does not commit a color change. These checks do not constitute a browser
 interaction test.
 
+## Hex display for colors outside sRGB
+
+The Hex field in `src/pages/ColorPage.tsx` uses
+`new Color(value).to("srgb").toString({ format: "hex" })`.
+For an OKLCH color outside sRGB, hex serialization applies Color.js's default
+`css` gamut-mapping method. It reduces OKLCH chroma using perceptual clipping
+criteria, then rounds the mapped sRGB channels to 8-bit integers for hex output.
+The result is an sRGB approximation, not an exact equivalent of the original
+out-of-gamut color.
+
+For example, the installed Color.js version produces:
+
+```text
+oklch(0.7 0.4 30) → #ff5843
+```
+
+Alpha, when included in hex, is also quantized to an 8-bit channel. Color.js may
+use shorthand hex when the channel bytes permit it. This 8-bit serialization is
+separate from the significant-digit policy and the 10-bit exploration above;
+hex cannot retain their full precision or colors outside sRGB.
+
+Displaying the hex approximation does not replace the stored OKLCH value.
+Editing the Hex field and saving with the checkmark replaces the stored color
+with the entered sRGB hex value. The gamut-mapped example depends on the
+installed Color.js algorithm and defaults and may change with library updates.
+
 ## Neutral normalization cutoff exploration
 
 `neutralPrecision.test.ts` tests normalization separately from significant digits.
